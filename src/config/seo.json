@@ -1,0 +1,117 @@
+{
+  "siteUrl": "https://climatesolutions.am",
+  "siteName": "Climate Solutions",
+  "locale": "hy_AM",
+  "ogImage": "/og-image.jpg",
+  "hiddenRoutes": [
+    "/projects"
+  ],
+  "routes": {
+    "/": {
+      "title": "Climate Solutions — HVAC ինժեներական լուծումներ Երևանում",
+      "description": "Ջեռուցման, օդափոխության և օդորակման համակարգերի նախագծում, մոնտաժ և սպասարկում բնակելի, կոմերցիոն և արտադրական շենքերի համար։"
+    },
+    "/about": {
+      "title": "Մեր մասին — Climate Solutions",
+      "description": "Climate Solutions-ի առաքելությունը, ինժեներական մոտեցումը և որակի սկզբունքները ջեռուցման, օդափոխության և օդորակման ոլորտում։"
+    },
+    "/services": {
+      "title": "Ծառայություններ՝ ջեռուցում, օդափոխություն, օդորակում — Climate Solutions",
+      "description": "HVAC համակարգերի նախագծում, ջեռուցում, օդափոխություն, օդորակում, էներգաարդյունավետ լուծումներ և տեխնիկական սպասարկում։"
+    },
+    "/services/design": {
+      "title": "HVAC համակարգերի նախագծում — Climate Solutions",
+      "description": "Ջերմային բեռնվածքների հաշվարկ, համակարգի սխեմայի ընտրություն, սարքավորումների բնութագրեր և աշխատանքային գծագրեր։"
+    },
+    "/services/heating": {
+      "title": "Ջեռուցման համակարգեր — Climate Solutions",
+      "description": "Կաթսայատներ, ջերմային պոմպեր, տաք հատակ և ռադիատորային ջեռուցում՝ ընտրված ըստ շենքի և էներգակրի։"
+    },
+    "/services/ventilation": {
+      "title": "Օդափոխության համակարգեր — Climate Solutions",
+      "description": "Ներհոսքային և արտածման օդափոխություն, ռեկուպերատորներ և օդատարների ցանցի նախագծում ու մոնտաժ։"
+    },
+    "/services/air-conditioning": {
+      "title": "Օդորակում և կլիմայի կառավարում — Climate Solutions",
+      "description": "Split, multi-split և VRF համակարգեր, չիլլեր-ֆանկոյլներ և կլիմայի կենտրոնացված կառավարում։"
+    },
+    "/services/energy-efficiency": {
+      "title": "Էներգաարդյունավետ լուծումներ — Climate Solutions",
+      "description": "Ջերմային պոմպեր, ջերմության վերականգնում և ավտոմատացում՝ շահագործման ծախսերը նվազեցնելու համար։"
+    },
+    "/services/maintenance": {
+      "title": "Տեխնիկական սպասարկում և արդիականացում — Climate Solutions",
+      "description": "HVAC համակարգերի պլանային սպասարկում, անսարքությունների ախտորոշում և փուլային արդիականացում։"
+    },
+    "/projects": {
+      "title": "Նախագծեր — Climate Solutions",
+      "description": "Ջեռուցման, օդափոխության և օդորակման համակարգերի նախագծեր բնակելի, կոմերցիոն, գրասենյակային և արտադրական օբյեկտներում։"
+    },
+    "/contact": {
+      "title": "Կապ և խորհրդատվություն — Climate Solutions",
+      "description": "Կապվեք Climate Solutions-ի հետ HVAC համակարգերի վերաբերյալ խորհրդատվության կամ նախագծի քննարկման համար։ Երևան, Բագրևանդ 52/12։"
+    },
+    "/privacy": {
+      "title": "Գաղտնիության քաղաքականություն — Climate Solutions",
+      "description": "Ինչպես է Climate Solutions-ը մշակում կապի ձևի միջոցով տրամադրված անձնական տվյալները։"
+    },
+    "/404": {
+      "title": "Էջը չի գտնվել — Climate Solutions",
+      "description": "Որոնվող էջը գոյություն չունի կամ տեղափոխվել է։"
+    }
+  },
+  "routesEn": {
+    "/": {
+      "title": "Climate Solutions — HVAC engineering in Yerevan, Armenia",
+      "description": "Design, installation and maintenance of heating, ventilation and air-conditioning systems for residential, commercial and industrial buildings in Armenia."
+    },
+    "/about": {
+      "title": "About us — Climate Solutions",
+      "description": "Our mission, engineering approach and quality principles in heating, ventilation and air conditioning."
+    },
+    "/services": {
+      "title": "Services: heating, ventilation, air conditioning — Climate Solutions",
+      "description": "HVAC system design, heating, ventilation, air conditioning, energy-efficient solutions and technical maintenance."
+    },
+    "/services/design": {
+      "title": "HVAC system design — Climate Solutions",
+      "description": "Heating and cooling load calculations, system concept, equipment specifications and working drawings."
+    },
+    "/services/heating": {
+      "title": "Heating systems — Climate Solutions",
+      "description": "Boiler rooms, heat pumps, underfloor and radiator heating, chosen to suit the building and the energy source."
+    },
+    "/services/ventilation": {
+      "title": "Ventilation systems — Climate Solutions",
+      "description": "Supply and extract ventilation, heat-recovery units, ductwork design and installation."
+    },
+    "/services/air-conditioning": {
+      "title": "Air conditioning and climate control — Climate Solutions",
+      "description": "Split, multi-split and VRF systems, chiller and fan-coil systems, and central climate control."
+    },
+    "/services/energy-efficiency": {
+      "title": "Energy-efficient solutions — Climate Solutions",
+      "description": "Heat pumps, heat recovery and automation to reduce operating costs."
+    },
+    "/services/maintenance": {
+      "title": "Maintenance and upgrades — Climate Solutions",
+      "description": "Scheduled maintenance, fault diagnosis and step-by-step upgrades of HVAC systems."
+    },
+    "/projects": {
+      "title": "Projects — Climate Solutions",
+      "description": "Heating, ventilation and air-conditioning projects in residential, commercial, office and industrial buildings."
+    },
+    "/contact": {
+      "title": "Contact and consultation — Climate Solutions",
+      "description": "Contact Climate Solutions for an HVAC consultation or to discuss your project. Office: 52/12 Bagrevand St, Yerevan."
+    },
+    "/privacy": {
+      "title": "Privacy policy — Climate Solutions",
+      "description": "How Climate Solutions handles the personal data sent through the contact form."
+    },
+    "/404": {
+      "title": "Page not found — Climate Solutions",
+      "description": "The page you are looking for does not exist or has moved."
+    }
+  }
+}

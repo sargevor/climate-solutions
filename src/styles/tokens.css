@@ -1,0 +1,116 @@
+/* Design tokens — palette taken from the Climate Solutions logo:
+   petrol ink (wordmark), gear teal, leaf green, heat red, air blue. */
+:root {
+  --bg: #f7f8f5;
+  --surface: #eef2ee;
+  --tint: #e5ede3;
+  --fg: #1a3d4a;
+  --muted: #4c6570;
+  --line: #d2dcd8;
+  --brand: #2a6070;
+  --accent: #4b7434;
+  --accent-hover: #3c5f28;
+  --accent-ink: #ffffff;
+  --heat: #b8220c;
+  --heat-soft: #e8a094;
+  --air: #2f6db5;
+  --heat-bg: #fbe6df;
+  --air-bg: #e1ecf8;
+  --leaf-bg: #e4eedb;
+  --brand-bg: #dfeaec;
+  --error: #b3240f;
+  --ok: #4b7434;
+  --logo-light: block;
+  --logo-dark: none;
+
+  /* Dark bands (hero, footer) — same in both themes */
+  --band: #17414f;
+  --band-2: #1e4d5c;
+  --band-fg: #eef3f1;
+  --band-muted: #c9d8dc;
+  --band-line: #3a6371;
+  --band-accent: #8db56a;
+  --band-accent-ink: #10240e;
+  --band-heat: #f59a86;
+  --band-air: #82b6f2;
+
+  --focus: var(--brand);
+
+  --font: 'Noto Sans Armenian Variable', 'Noto Sans Armenian', 'Noto Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'IBM Plex Mono', 'Noto Sans Armenian Variable', ui-monospace, Menlo, monospace;
+
+  --t-xs: 0.8125rem;
+  --t-sm: 0.9375rem;
+  --t-base: 1.0625rem;
+  --t-lead: clamp(1.125rem, 1.4vw, 1.25rem);
+  --t-h3: 1.25rem;
+  --t-h2: clamp(1.75rem, 3vw, 2.5rem);
+  --t-h1: clamp(2rem, 3.8vw, 3.125rem);
+  --t-hero: clamp(2.2rem, 4.2vw, 3.5rem);
+  --t-nav: 0.9375rem;
+  --t-btn: 0.9375rem;
+
+  --gut: max(16px, env(safe-area-inset-left, 0px));
+  --gut-r: max(16px, env(safe-area-inset-right, 0px));
+  --max: 1240px;
+  --r: 6px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0e1d23;
+    --surface: #142a33;
+    --tint: #152b2a;
+    --fg: #e5eeec;
+    --muted: #b4c7cc;
+    --line: #24404a;
+    --brand: #8cc5d3;
+    --accent: #8db56a;
+    --accent-hover: #a5c886;
+    --accent-ink: #10240e;
+    --heat: #f08070;
+    --heat-soft: #8c4a40;
+    --air: #82b6f2;
+    --heat-bg: #3a2420;
+    --air-bg: #1b3147;
+    --leaf-bg: #22331d;
+    --brand-bg: #1a3540;
+    --error: #f28b7d;
+    --ok: #8db56a;
+    --logo-light: none;
+    --logo-dark: block;
+    --band: #0a161b;
+    --band-2: #102229;
+    --band-line: #23414c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --bg: #0e1d23;
+  --surface: #142a33;
+  --tint: #152b2a;
+  --fg: #e5eeec;
+  --muted: #b4c7cc;
+  --line: #24404a;
+  --brand: #8cc5d3;
+  --accent: #8db56a;
+  --accent-hover: #a5c886;
+  --accent-ink: #10240e;
+  --heat: #f08070;
+  --heat-soft: #8c4a40;
+  --air: #82b6f2;
+  --heat-bg: #3a2420;
+  --air-bg: #1b3147;
+  --leaf-bg: #22331d;
+  --brand-bg: #1a3540;
+  --error: #f28b7d;
+  --ok: #8db56a;
+  --logo-light: none;
+  --logo-dark: block;
+  --band: #0a161b;
+  --band-2: #102229;
+  --band-line: #23414c;
+  color-scheme: dark;
+}

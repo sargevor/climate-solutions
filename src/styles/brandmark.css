@@ -1,0 +1,67 @@
+/* ---------- Animated logo mark (home hero) ---------- */
+.bm {
+  position: absolute; z-index: 2;
+  top: 12px; right: 12px;
+  width: clamp(104px, 28vw, 140px); aspect-ratio: 1;
+  border-radius: 50%;
+  background: #f7faf9;            /* also baked into public/brand/halo.webp — keep in sync */
+  box-shadow: 0 18px 40px -14px rgb(0 0 0 / 0.55), 0 0 0 5px rgb(255 255 255 / 0.1);
+  pointer-events: auto;
+}
+.bm__svg { display: block; width: 100%; height: 100%; overflow: visible; }
+@media (min-width: 1080px) {
+  .bm {
+    top: clamp(20px, 2.4vw, 36px); right: auto;
+    left: calc(-1 * clamp(44px, 4.4vw, 72px));
+    width: clamp(150px, 13vw, 196px);
+  }
+}
+
+.bm__gear, .bm__grow { transform-box: view-box; }
+.bm__gear { transform-origin: 560px 560px; }
+.bm__grow { transform-origin: 614px 1081px; }   /* bottom of the stem */
+
+@media (prefers-reduced-motion: no-preference) {
+  .bm.is-wait { opacity: 0; }
+  .bm.is-play { animation: bm-pop 0.8s 0.35s var(--ease) both; }
+
+  /* The gear turns for the whole sequence and settles when the leaf is fully grown. */
+  .bm.is-play .bm__gear { animation: bm-spin 4.4s 0.35s cubic-bezier(0.18, 0.5, 0.22, 1) both; }
+
+  /* Threads: each line is drawn along its own path, one after another. */
+  .bm.is-play .bm__thread {
+    stroke-dasharray: 1 1.2;
+    animation: bm-draw 1.4s cubic-bezier(0.6, 0.05, 0.3, 1) both;
+  }
+  .bm.is-play .bm__thread--arcTop { animation-delay: 0.75s; }
+  .bm.is-play .bm__thread--windTop { animation-delay: 1.15s; }
+  .bm.is-play .bm__thread--windBot { animation-delay: 1.45s; }
+  .bm.is-play .bm__thread--arcBot { animation-delay: 1.75s; }
+
+  /* The leaf grows from its stem: small and curled, then opening out with a slight sway. */
+  .bm.is-play .bm__grow { animation: bm-grow 2.4s 2.1s cubic-bezier(0.3, 0.1, 0.25, 1) both; }
+
+  /* One tooth further on hover. */
+  .bm__gear { transition: rotate 0.9s cubic-bezier(0.34, 1.4, 0.64, 1); }
+  .bm:hover .bm__gear { rotate: 45deg; }
+}
+
+@keyframes bm-pop {
+  from { opacity: 0; transform: scale(0.55); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes bm-spin {
+  from { transform: rotate(-720deg); }
+  to { transform: rotate(0deg); }
+}
+@keyframes bm-draw {
+  from { stroke-dashoffset: 1.1; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes bm-grow {
+  0% { transform: rotate(-32deg) scale(0.03); opacity: 0; }
+  10% { opacity: 1; }
+  45% { transform: rotate(-10deg) scale(0.55, 0.62); }
+  78% { transform: rotate(3deg) scale(1.02); }
+  100% { transform: rotate(0deg) scale(1); opacity: 1; }
+}
