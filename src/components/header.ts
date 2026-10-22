@@ -24,7 +24,7 @@ export function renderHeader(): string {
         <ul>${NAV.map((n) => html`<li><a href="${n.href}" data-nav="${n.href}">${n.label}</a></li>`)}</ul>
       </nav>
       ${langSwitch('hdr')}
-      <a class="btn btn--primary hdr__cta" href="/contact">${tx('Ստանալ խորհրդատվություն', 'Get a consultation')}</a>
+      <a class="btn btn--primary hdr__cta" href="/contact">${tx('Խորհրդատվություն', 'Get a consultation')}</a>
       <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="${tx('Բացել ընտրացանկը', 'Open menu')}">
         <span class="menu-btn__ico" aria-hidden="true"><span></span><span></span><span></span></span>
         <span class="menu-btn__lbl" id="menuLbl">${tx('Ընտրացանկ', 'Menu')}</span>

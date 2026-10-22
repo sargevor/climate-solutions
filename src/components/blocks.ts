@@ -7,6 +7,7 @@ import type { PhotoKey } from '../content/photos';
 import type { Service, Tone } from '../content/services';
 import { CATEGORIES, type Project } from '../content/projects';
 import type { SceneName } from '../features/backgrounds';
+import type { Partner } from '../content/partners';
 
 /** Icon in a tinted round tile, color-coded by tone (heat / air / leaf / brand). */
 export const iconTile = (name: IconName, tone: Tone, size: 'md' | 'lg' = 'md') =>
@@ -78,3 +79,50 @@ export const projectCard = (p: Project) => {
     ${!!p.details && p.details.length > 0 && html`<dl>${p.details.map(([k, v]) => html`<div><dt>${k}</dt><dd>${v}</dd></div>`)}</dl>`}
   </article>`;
 };
+
+/** Partner card: typographic wordmark, country, short text. No outbound links by design. */
+export const partnerCard = (p: Partner, full = false) => html`
+  <article class="partner partner--${p.tone}${full ? ' partner--full' : ''}" aria-labelledby="partner-${p.id}">
+    <div class="partner__mark" aria-hidden="true"><span>${p.name}</span></div>
+    <div class="partner__body">
+      <p class="partner__meta"><span class="partner__dot" aria-hidden="true"></span>${p.country} · ${p.field}</p>
+      <h3 id="partner-${p.id}"><span class="vh">${p.name}: </span>${p.legalName}</h3>
+      <p class="partner__text">${p.text}</p>
+      ${full && html`<ul class="partner__focus">${p.focus.map((f) => html`<li>${f}</li>`)}</ul>`}
+    </div>
+  </article>`;
+
+/** Small decorative capillary mat (light sections). */
+const capMini = () => {
+  let d = '';
+  let flows = '';
+  for (let x = 30, i = 0; x <= 290; x += 13, i++) {
+    d += `M${x} 40V200`;
+    flows += `<path class="capmini__flow" d="M${x} 40V200" style="animation-delay:-${((i * 7) % 26) / 10}s"/>`;
+  }
+  return `<svg class="capmini" viewBox="0 0 320 240" aria-hidden="true" focusable="false">
+    <rect class="capmini__panel" x="14" y="22" width="292" height="196" rx="8"/>
+    <path class="capmini__tube" d="${d}"/>${flows}
+    <path class="capmini__hdr capmini__hdr--sup" d="M4 36H296"/><path class="capmini__hdr capmini__hdr--ret" d="M4 204H296"/>
+  </svg>`;
+};
+
+/** Short introduction to capillary tube mats, linking to the full page. */
+export const capillaryTeaser = (headingId: string) => html`
+  <div class="capt rv">
+    <div class="capt__txt stack">
+      <p class="eyebrow">${tx('Տեխնոլոգիա · CLINA, Գերմանիա', 'Technology · CLINA, Germany')}</p>
+      <h2 id="${headingId}">${tx('Կապիլյար խողովակային մատեր', 'Capillary tube mats')}</h2>
+      <p class="lead">${tx(
+        'Բարակ խողովակների ցանց, որը տեղադրվում է առաստաղի, պատի կամ հատակի հարդարման մեջ։ Մակերևույթն ինքն է դառնում ջեռուցող կամ հովացնող՝ հավասարաչափ, անաղմուկ և առանց օդի հոսքի։',
+        'A network of thin tubes laid in the finish of a ceiling, wall or floor. The surface itself heats or cools the room: evenly, silently and without draughts.',
+      )}</p>
+      <ul class="capt__pts">
+        <li>${tx('Ջեռուցում և հովացում՝ նույն համակարգով', 'Heating and cooling with one system')}</li>
+        <li>${tx('Թաքնված է հարդարման մեջ', 'Hidden in the finish')}</li>
+        <li>${tx('Նոր շենքերի և վերակառուցման համար', 'For new buildings and renovations')}</li>
+      </ul>
+      <div><a class="btn btn--primary" href="/capillary-tube-mats">${tx('Ինչպես է այն աշխատում', 'How it works')} ${arrow}</a></div>
+    </div>
+    <div class="capt__art">${capMini()}</div>
+  </div>`;

@@ -140,3 +140,89 @@ select.input {
 /* ---------- 404 ---------- */
 .nf__in { display: grid; gap: 20px; justify-items: start; }
 .nf__code { font-family: var(--mono); font-size: clamp(4rem, 12vw, 8rem); line-height: 1; color: var(--brand); font-weight: 500; }
+
+/* ---------- Partners ---------- */
+.partners { display: grid; gap: clamp(16px, 2vw, 24px); }
+@media (min-width: 860px) { .partners { grid-template-columns: 1fr 1fr; } }
+.partner {
+  --tone: var(--accent); --tone-bg: var(--leaf-bg);
+  position: relative; display: grid; align-content: start; gap: 22px;
+  padding: clamp(22px, 3vw, 34px); border: 1px solid var(--line); border-radius: 10px; background: var(--bg);
+}
+.partner--air { --tone: var(--air); --tone-bg: var(--air-bg); }
+.partner__mark {
+  display: flex; align-items: center; height: 92px; padding: 0 26px; border-radius: 8px;
+  background:
+    repeating-linear-gradient(90deg, color-mix(in srgb, var(--tone) 14%, transparent) 0 1px, transparent 1px 9px),
+    var(--tone-bg);
+}
+.partner__mark span {
+  font-size: clamp(1.7rem, 3.2vw, 2.3rem); font-weight: 800; letter-spacing: 0.16em; color: var(--fg); line-height: 1;
+}
+.partner__body { display: grid; gap: 10px; }
+.partner__meta { display: flex; align-items: baseline; gap: 8px; font-size: var(--t-xs); font-weight: 650; color: var(--tone); letter-spacing: 0.02em; }
+.partner__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--tone); flex: none; translate: 0 -1px; }
+.partner h3 { font-size: 1.1rem; font-weight: 650; overflow-wrap: anywhere; }
+.partner__text { color: var(--muted); font-size: var(--t-sm); line-height: 1.65; }
+.partner--full .partner__text { font-size: 1rem; }
+.partner__focus { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.partner__focus li, .chips li {
+  padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px;
+  font-size: var(--t-xs); font-weight: 600; color: var(--fg); background: var(--surface);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* ---------- Capillary teaser ---------- */
+.capt { display: grid; gap: clamp(28px, 4vw, 56px); align-items: center; }
+@media (min-width: 900px) { .capt { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); } }
+.capt__pts { display: grid; gap: 10px; }
+.capt__pts li { display: flex; gap: 12px; align-items: baseline; font-weight: 550; }
+.capt__pts li::before { content: ''; width: 18px; height: 2px; flex: none; background: var(--accent); translate: 0 -4px; }
+.capt__art { min-width: 0; }
+.capmini { display: block; width: 100%; height: auto; max-width: 460px; margin-inline: auto; overflow: visible; }
+.capmini__panel { fill: var(--bg); stroke: var(--line); stroke-width: 1.5; }
+.capmini__tube { fill: none; stroke: var(--line); stroke-width: 2; }
+.capmini__flow { fill: none; stroke: var(--heat); stroke-width: 2.2; stroke-linecap: round; stroke-dasharray: 10 44; opacity: 0.85; }
+.capmini__hdr { fill: none; stroke-width: 9; stroke-linecap: round; }
+.capmini__hdr--sup { stroke: var(--heat); }
+.capmini__hdr--ret { stroke: var(--air); }
+
+/* ---------- Capillary page ---------- */
+.cap .system__grid { align-items: center; }
+@media (min-width: 1000px) { .cap .system__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } }
+.cap h2 { color: var(--band-fg); }
+.cap__txt { gap: 16px; }
+/* Supply colour at the top, return colour at the bottom: the water gives off heat (or takes it up) on the way. */
+.cap { --cap-hot: var(--band-heat); --cap-cold: #8fb0bf; }
+.cap.cap--cool { --cap-hot: var(--band-air); --cap-cold: #c7a59e; }
+.dwg--cap { margin-bottom: 18px; }
+.d-panel { fill: color-mix(in srgb, var(--band-fg) 5%, transparent); stroke: var(--band-line); stroke-width: 1.5; stroke-dasharray: 5 5; }
+.d-cap { fill: none; stroke-width: 2.2; }
+.cap-stop-hot { stop-color: var(--cap-hot); transition: stop-color 0.6s; }
+.cap-stop-cold { stop-color: var(--cap-cold); transition: stop-color 0.6s; }
+.d-cap-flow { fill: none; stroke: var(--band-fg); stroke-width: 2.2; stroke-linecap: round; stroke-dasharray: 8 46; opacity: 0.55; }
+.d-hdr { fill: none; stroke-width: 12; stroke-linecap: round; transition: stroke 0.6s; }
+.d-hdr--sup { stroke: var(--cap-hot); }
+.d-hdr--ret { stroke: var(--cap-cold); }
+.d-arrow { fill: none; stroke: var(--band); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.d-lead--cap { stroke: var(--band-fg); opacity: 0.7; }
+.d-call--cap circle { fill: var(--band-fg); stroke: var(--band); stroke-width: 3; }
+.legend__item--cap .legend__n { background: var(--band-fg); }
+.capmode { display: inline-flex; gap: 4px; padding: 4px; border: 1px solid var(--band-line); border-radius: 999px; justify-self: start; }
+.capmode__btn {
+  min-height: 40px; padding: 0 18px; border: 0; border-radius: 999px; background: transparent;
+  font: inherit; font-size: var(--t-sm); font-weight: 650; color: var(--band-fg); cursor: pointer;
+  transition: background-color 0.25s, color 0.25s;
+}
+.capmode__btn[aria-pressed='true'][data-mode='heat'] { background: var(--band-heat); color: #2a0d07; }
+.capmode__btn[aria-pressed='true'][data-mode='cool'] { background: var(--band-air); color: #0b2238; }
+.capmode__btn:focus-visible { outline: 3px solid var(--band-accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: no-preference) {
+  .cap.is-live .d-cap-flow { animation: cap-flow 2.4s linear infinite; }
+  .capmini__flow { animation: cap-flow 2.6s linear infinite; }
+}
+@keyframes cap-flow { to { stroke-dashoffset: -54; } }
+.tiles--3 { grid-template-columns: 1fr; }
+@media (min-width: 700px) { .tiles--3 { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .tiles--3 { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1000px) { .proc--3 { grid-template-columns: repeat(3, 1fr); } }

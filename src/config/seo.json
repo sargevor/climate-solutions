@@ -47,6 +47,14 @@
       "title": "Նախագծեր — Climate Solutions",
       "description": "Ջեռուցման, օդափոխության և օդորակման համակարգերի նախագծեր բնակելի, կոմերցիոն, գրասենյակային և արտադրական օբյեկտներում։"
     },
+    "/partners": {
+      "title": "Գործընկերներ — Climate Solutions",
+      "description": "Climate Solutions-ի գործընկերները՝ CLINA (Գերմանիա) կապիլյար խողովակային համակարգեր և SHENLING (Չինաստան) կլիմայական սարքավորումներ և ջերմային պոմպեր։"
+    },
+    "/capillary-tube-mats": {
+      "title": "Կապիլյար խողովակային մատեր՝ ջեռուցում և հովացում — Climate Solutions",
+      "description": "Ինչպես են աշխատում CLINA-ի կապիլյար խողովակային մատերը՝ ջեռուցում և հովացում առաստաղի, պատերի և հատակի միջոցով, առավելություններ և նախագծման առանձնահատկություններ։"
+    },
     "/contact": {
       "title": "Կապ և խորհրդատվություն — Climate Solutions",
       "description": "Կապվեք Climate Solutions-ի հետ HVAC համակարգերի վերաբերյալ խորհրդատվության կամ նախագծի քննարկման համար։ Երևան, Բագրևանդ 52/12։"
@@ -100,6 +108,14 @@
     "/projects": {
       "title": "Projects — Climate Solutions",
       "description": "Heating, ventilation and air-conditioning projects in residential, commercial, office and industrial buildings."
+    },
+    "/partners": {
+      "title": "Partners — Climate Solutions",
+      "description": "Climate Solutions partners: CLINA (Germany), capillary tube systems, and SHENLING (China), climate equipment and heat pumps."
+    },
+    "/capillary-tube-mats": {
+      "title": "Capillary tube mats for heating and cooling — Climate Solutions",
+      "description": "How CLINA capillary tube mats work: heating and cooling through ceilings, walls and floors, their benefits and what to consider in the design."
     },
     "/contact": {
       "title": "Contact and consultation — Climate Solutions",

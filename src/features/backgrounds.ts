@@ -443,7 +443,71 @@ function dots(): Scene {
   };
 }
 
-export const SCENES = { air, convection, isotherm, blueprint, heat, hex, ripples, dots } as const;
+/**
+ * Capillary mats: panels of thin parallel tubes between a supply and a return header.
+ * Water pulses run down the capillaries; the system slowly alternates between heating
+ * (warm pulses that cool as they give off heat) and cooling (cool pulses that warm up).
+ */
+function capillary(): Scene {
+  interface Tube { x: number; y0: number; y1: number; ph: number; sp: number }
+  let panels: { x: number; y: number; w: number; h: number }[] = [];
+  let tubes: Tube[] = [];
+  let step = 9;
+  return {
+    setup(c) {
+      const { w, h } = c;
+      step = w < 700 ? 8 : 9;
+      const pw = w < 700 ? 150 : 210;
+      const ph = Math.max(120, Math.min(260, h * 0.42));
+      const gx = 34, gy = 30;
+      panels = []; tubes = [];
+      const cols = Math.ceil(w / (pw + gx)) + 1;
+      const rows = Math.ceil(h / (ph + gy)) + 1;
+      for (let r = 0; r < rows; r++) {
+        for (let q = 0; q < cols; q++) {
+          const x = q * (pw + gx) - (r % 2 ? pw * 0.45 : 12);
+          const y = r * (ph + gy) + 14;
+          panels.push({ x, y, w: pw, h: ph });
+          for (let tx = x + 10; tx < x + pw - 6; tx += step) {
+            tubes.push({ x: tx, y0: y + 8, y1: y + ph - 8, ph: Math.random(), sp: rand(0.00011, 0.00018) * c.density });
+          }
+        }
+      }
+    },
+    frame(c) {
+      const { ctx, t, p } = c;
+      // 0 = heating, 1 = cooling, with a slow cross-fade every ~9 s.
+      const mode = (Math.sin(t * 0.00035) + 1) / 2;
+      const hot = mix(p.heat, p.air, mode);
+      const cold = mix(p.air, p.heat, mode);
+      ctx.lineCap = 'round';
+      for (const pn of panels) {
+        ctx.strokeStyle = rgba(p.ink, 0.2 * p.a);
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(pn.x + 4, pn.y + 4); ctx.lineTo(pn.x + pn.w - 4, pn.y + 4);
+        ctx.moveTo(pn.x + 4, pn.y + pn.h - 4); ctx.lineTo(pn.x + pn.w - 4, pn.y + pn.h - 4);
+        ctx.stroke();
+      }
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = rgba(p.ink, 0.1 * p.a);
+      ctx.beginPath();
+      for (const tb of tubes) { ctx.moveTo(tb.x, tb.y0); ctx.lineTo(tb.x, tb.y1); }
+      ctx.stroke();
+      ctx.lineWidth = 1.6;
+      for (const tb of tubes) {
+        const k = (tb.ph + t * tb.sp) % 1;
+        const len = tb.y1 - tb.y0;
+        const y = tb.y0 + k * len;
+        const col = mix(hot, cold, k);
+        ctx.strokeStyle = rgba(col, Math.sin(k * Math.PI) * 0.75 * p.a);
+        ctx.beginPath(); ctx.moveTo(tb.x, Math.max(tb.y0, y - 16)); ctx.lineTo(tb.x, y); ctx.stroke();
+      }
+    },
+  };
+}
+
+export const SCENES = { air, convection, isotherm, blueprint, heat, hex, ripples, dots, capillary } as const;
 export type SceneName = keyof typeof SCENES;
 
 /* ================================================================== */

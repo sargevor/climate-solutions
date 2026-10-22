@@ -81,15 +81,18 @@ body::before {
 .nav { display: none; }
 .nav ul { display: flex; gap: 4px; }
 .nav a {
-  display: flex; align-items: center; min-height: 40px; padding: 0 14px;
+  display: flex; align-items: center; min-height: 40px; padding: 0 14px; white-space: nowrap;
   font-size: var(--t-nav); font-weight: 500; color: var(--muted); text-decoration: none;
   border-radius: 999px; transition: color 0.2s, background-color 0.2s;
 }
 .nav a:hover { color: var(--fg); background: var(--surface); }
 .nav a:active { background: var(--tint); }
 .nav a[aria-current='page'] { color: var(--fg); font-weight: 600; background: var(--tint); }
-.hdr__cta { display: none; min-height: 44px; padding: 10px 20px; white-space: nowrap; }
+.hdr__cta { display: none; min-height: 44px; padding: 10px 20px; white-space: nowrap; flex-shrink: 0; }
 @media (min-width: 640px) { .hdr__cta { display: inline-flex; } }
+/* Five nav items plus the button do not fit between 1080 and 1280 px: Contact is in the nav anyway. */
+@media (min-width: 1080px) and (max-width: 1279px) { .hdr__cta { display: none; } }
+.hdr__brand { flex-shrink: 0; }
 
 .menu-btn {
   display: inline-flex; align-items: center; gap: 10px; min-height: 44px; padding: 8px 14px;

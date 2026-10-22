@@ -8,7 +8,9 @@ import { SITE, HAS_PROJECTS } from '../config/site';
 import { SERVICES } from '../content/services';
 import { FOCUS, PRINCIPLES, PROCESS } from '../content/company';
 import { PROJECTS } from '../content/projects';
-import { ctaBand, projectCard, serviceCard } from '../components/blocks';
+import { capillaryTeaser, ctaBand, partnerCard, projectCard, serviceCard } from '../components/blocks';
+import { PARTNERS } from '../content/partners';
+import { partnersMore } from './partners';
 import { brandMark, mountBrandMark } from '../components/brandMark';
 
 /** Facts shown under the hero buttons when no verified statistics are configured. */
@@ -101,6 +103,22 @@ export const homePage = (): Page => ({
         </ol>
       </div>
     </div>
+  </section>
+
+  <section class="sec" aria-labelledby="partners-h">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="eyebrow">${tx('Գործընկերներ', 'Partners')}</p>
+        <h2 id="partners-h">${tx('Արտադրողներ, որոնց հետ աշխատում ենք', 'Manufacturers we work with')}</h2>
+        <p class="lead">${tx('Համագործակցում ենք եվրոպական և ասիական արտադրողների հետ, որոնց լուծումները առաջարկում ենք մեր պատվիրատուներին։', 'We partner with European and Asian manufacturers whose solutions we offer to our clients.')}</p>
+      </div>
+      <div class="partners rv">${PARTNERS.map((p) => partnerCard(p))}</div>
+      ${partnersMore()}
+    </div>
+  </section>
+
+  <section class="sec sec--tint" aria-labelledby="capt-h">
+    <div class="wrap">${capillaryTeaser('capt-h')}</div>
   </section>
 
   ${SITE.brands.length > 0 && html`

@@ -54,6 +54,7 @@ const ALL_NAV: NavItem[] = [
   { href: '/', label: tx('Գլխավոր', 'Home') },
   { href: '/about', label: tx('Մեր մասին', 'About') },
   { href: '/services', label: tx('Ծառայություններ', 'Services') },
+  { href: '/partners', label: tx('Գործընկերներ', 'Partners') },
   { href: '/projects', label: tx('Նախագծեր', 'Projects') },
   { href: '/contact', label: tx('Կապ', 'Contact') },
 ];

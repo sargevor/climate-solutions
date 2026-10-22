@@ -115,3 +115,44 @@ export function planDrawing(cat: ProjectCategory): string {
   };
   return `<svg class="plan" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><g class="pl-grid">${grid}</g>${body[cat]}</svg>`;
 }
+
+/** Labels of the capillary mat drawing (rendered as an HTML legend under it). */
+export const CAPILLARY_CALLOUTS: { title: string; text: string }[] = tx([
+  { title: 'Մատակարարման կոլեկտոր', text: 'Բաշխիչ խողովակ, որից ջուրը միաժամանակ մտնում է բոլոր կապիլյարների մեջ։' },
+  { title: 'Կապիլյար խողովակներ', text: 'Բարակ PP-R խողովակներ՝ 3.4 կամ 4.3 մմ արտաքին տրամագծով, տեղադրված միմյանց մոտ։' },
+  { title: 'Վերադարձի կոլեկտոր', text: 'Հավաքում է ջուրը բոլոր խողովակներից և վերադարձնում ջերմության կամ սառնության աղբյուրին։' },
+], [
+  { title: 'Supply header', text: 'A distributor pipe that feeds all the capillaries at the same time.' },
+  { title: 'Capillary tubes', text: 'Thin PP-R tubes, 3.4 or 4.3 mm outer diameter, laid close together.' },
+  { title: 'Return header', text: 'Collects the water from every tube and sends it back to the heat or cold source.' },
+]);
+
+/**
+ * Capillary tube mat in plan: supply header on top, return header at the bottom and many
+ * thin tubes between them with water flowing in parallel. Colours follow the
+ * heating / cooling mode set on the section (.cap--cool).
+ */
+export function capillaryDrawing(): string {
+  const tubes: string[] = [];
+  for (let x = 96; x <= 544; x += 16) tubes.push(`M${x} 84V316`);
+  const d = tubes.join('');
+  const call = (n: number, x: number, y: number, lx: number, ly: number) =>
+    `<path class="d-lead d-lead--cap" d="M${x} ${y}L${lx} ${ly}"/><g class="d-call d-call--cap"><circle cx="${lx}" cy="${ly}" r="17"/><text x="${lx}" y="${ly + 6}" text-anchor="middle">${n}</text></g>`;
+  return `<svg class="dwg dwg--cap" viewBox="0 0 640 400" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="cap-grad" x1="0" y1="84" x2="0" y2="316" gradientUnits="userSpaceOnUse">
+        <stop offset="0" class="cap-stop-hot"/><stop offset="1" class="cap-stop-cold"/>
+      </linearGradient>
+    </defs>
+    <rect class="d-panel" x="70" y="56" width="500" height="288" rx="6"/>
+    <path class="d-cap" d="${d}" stroke="url(#cap-grad)"/>
+    ${tubes.map((t, i) => `<path class="d-cap-flow" d="${t}" style="animation-delay:-${((i * 7) % 24) / 10}s"/>`).join('')}
+    <path class="d-hdr d-hdr--sup" d="M20 76H552"/>
+    <path class="d-hdr d-hdr--ret" d="M20 324H552"/>
+    <path class="d-arrow d-arrow--sup" d="M30 66l14 10-14 10"/>
+    <path class="d-arrow d-arrow--ret" d="M44 314l-14 10 14 10"/>
+    ${call(1, 300, 76, 300, 30)}
+    ${call(2, 400, 200, 604, 200)}
+    ${call(3, 300, 324, 300, 370)}
+  </svg>`;
+}
