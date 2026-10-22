@@ -1,4 +1,5 @@
 import { tx } from '../i18n';
+import { CLINA_LOGO, SHENLING_LOGO } from '../assets/partners/logos';
 
 /**
  * Manufacturers we work with. Shown on the home page and on /partners.
@@ -9,7 +10,7 @@ export interface Partner {
   id: 'clina' | 'shenling';
   /** Company name; shown as lettering on the card when no logo file is set. */
   name: string;
-  /** Logo file in public/partners/ (e.g. '/partners/clina.png'), shown on a white plate. */
+  /** Logo image (embedded data URI, see src/assets/partners/logos.ts), shown on a white plate. */
   logo?: string;
   legalName: string;
   country: string;
@@ -24,7 +25,7 @@ export const PARTNERS: Partner[] = tx<Partner[]>([
   {
     id: 'clina',
     name: 'CLINA',
-    logo: '/partners/clina.svg',
+    logo: CLINA_LOGO,
     legalName: 'Clina Heiz- und Kühlelemente GmbH',
     country: 'Գերմանիա, Բեռլին',
     field: 'Կապիլյար խողովակային համակարգեր',
@@ -35,7 +36,7 @@ export const PARTNERS: Partner[] = tx<Partner[]>([
   {
     id: 'shenling',
     name: 'SHENLING',
-    logo: '/partners/shenling.png',
+    logo: SHENLING_LOGO,
     legalName: 'Guangdong Shenling Environmental Systems Co., Ltd.',
     country: 'Չինաստան, Ֆոշան',
     field: 'Կլիմայական սարքավորումներ և ջերմային պոմպեր',
@@ -47,7 +48,7 @@ export const PARTNERS: Partner[] = tx<Partner[]>([
   {
     id: 'clina',
     name: 'CLINA',
-    logo: '/partners/clina.svg',
+    logo: CLINA_LOGO,
     legalName: 'Clina Heiz- und Kühlelemente GmbH',
     country: 'Germany, Berlin',
     field: 'Capillary tube systems',
@@ -58,7 +59,7 @@ export const PARTNERS: Partner[] = tx<Partner[]>([
   {
     id: 'shenling',
     name: 'SHENLING',
-    logo: '/partners/shenling.png',
+    logo: SHENLING_LOGO,
     legalName: 'Guangdong Shenling Environmental Systems Co., Ltd.',
     country: 'China, Foshan',
     field: 'Climate equipment and heat pumps',

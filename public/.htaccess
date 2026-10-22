@@ -3,6 +3,12 @@
 Options -Indexes
 DirectoryIndex index.html
 AddDefaultCharset UTF-8
+
+# Correct file types for images (needed with the nosniff header below)
+AddType image/svg+xml .svg
+AddType image/webp .webp
+AddType font/woff2 .woff2
+
 ErrorDocument 404 /404.html
 
 <IfModule mod_rewrite.c>
