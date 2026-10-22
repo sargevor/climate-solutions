@@ -24,6 +24,7 @@ export const PARTNERS: Partner[] = tx<Partner[]>([
   {
     id: 'clina',
     name: 'CLINA',
+    logo: '/partners/clina.svg',
     legalName: 'Clina Heiz- und Kühlelemente GmbH',
     country: 'Գերմանիա, Բեռլին',
     field: 'Կապիլյար խողովակային համակարգեր',
@@ -34,6 +35,7 @@ export const PARTNERS: Partner[] = tx<Partner[]>([
   {
     id: 'shenling',
     name: 'SHENLING',
+    logo: '/partners/shenling.png',
     legalName: 'Guangdong Shenling Environmental Systems Co., Ltd.',
     country: 'Չինաստան, Ֆոշան',
     field: 'Կլիմայական սարքավորումներ և ջերմային պոմպեր',
@@ -45,6 +47,7 @@ export const PARTNERS: Partner[] = tx<Partner[]>([
   {
     id: 'clina',
     name: 'CLINA',
+    logo: '/partners/clina.svg',
     legalName: 'Clina Heiz- und Kühlelemente GmbH',
     country: 'Germany, Berlin',
     field: 'Capillary tube systems',
@@ -55,6 +58,7 @@ export const PARTNERS: Partner[] = tx<Partner[]>([
   {
     id: 'shenling',
     name: 'SHENLING',
+    logo: '/partners/shenling.png',
     legalName: 'Guangdong Shenling Environmental Systems Co., Ltd.',
     country: 'China, Foshan',
     field: 'Climate equipment and heat pumps',

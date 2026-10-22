@@ -84,7 +84,7 @@ export const projectCard = (p: Project) => {
 export const partnerCard = (p: Partner, full = false) => html`
   <article class="partner partner--${p.tone}${full ? ' partner--full' : ''}" aria-labelledby="partner-${p.id}">
     ${p.logo
-      ? html`<div class="partner__mark partner__mark--logo"><img src="${p.logo}" alt="${p.name}" loading="lazy" decoding="async"></div>`
+      ? html`<div class="partner__mark partner__mark--logo partner__mark--${p.id}" aria-hidden="true"><img src="${p.logo}" alt="" loading="lazy" decoding="async"></div>`
       : html`<div class="partner__mark" aria-hidden="true"><span>${p.name}</span></div>`}
     <div class="partner__body">
       <p class="partner__meta"><span class="partner__dot" aria-hidden="true"></span>${p.country} · ${p.field}</p>
