@@ -18,9 +18,13 @@ const SIZE = 1120;
 
 /** [x, y, width, height] of every layer in artwork coordinates. */
 const LAYERS = {
-  gear: [0, 0, 1058, 1058],
-  halo: [446, 138, 660, 920],
-  leaf: [504, 142, 602, 916],
+  // The gear box is a square centred on the gear's axis, so it can spin about its own centre.
+  gear: [-8, -3, 1068, 1068],
+  // Leaf and its outline share one box, so they grow from the same point.
+  halo: [446, 136, 660, 924],
+  leaf: [446, 136, 660, 924],
+  // Full outline as in the logo (wider gaps by the stem); appears once the leaf is grown.
+  haloFix: [444, 134, 662, 924],
   arcTop: [238, 230, 474, 248],
   windTop: [230, 380, 334, 160],
   windBot: [234, 560, 286, 138],
@@ -64,7 +68,7 @@ export function brandMark(): string {
       </defs>
       <g transform="translate(${OFFSET[0]} ${OFFSET[1]})">
         <g class="bm__gear">${img('gear')}</g>
-        <g clip-path="url(#bm-disc)"><g class="bm__grow">${img('halo')}</g></g>
+        <g clip-path="url(#bm-disc)"><g class="bm__grow">${img('halo')}</g><g class="bm__fix">${img('haloFix')}</g></g>
         <g class="bm__grow">${img('leaf')}</g>
         ${ORDER.map((t) => img(t, ` mask="url(#bm-m-${t})"`))}
       </g>

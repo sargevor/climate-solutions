@@ -83,7 +83,9 @@ export const projectCard = (p: Project) => {
 /** Partner card: typographic wordmark, country, short text. No outbound links by design. */
 export const partnerCard = (p: Partner, full = false) => html`
   <article class="partner partner--${p.tone}${full ? ' partner--full' : ''}" aria-labelledby="partner-${p.id}">
-    <div class="partner__mark" aria-hidden="true"><span>${p.name}</span></div>
+    ${p.logo
+      ? html`<div class="partner__mark partner__mark--logo"><img src="${p.logo}" alt="${p.name}" loading="lazy" decoding="async"></div>`
+      : html`<div class="partner__mark" aria-hidden="true"><span>${p.name}</span></div>`}
     <div class="partner__body">
       <p class="partner__meta"><span class="partner__dot" aria-hidden="true"></span>${p.country} · ${p.field}</p>
       <h3 id="partner-${p.id}"><span class="vh">${p.name}: </span>${p.legalName}</h3>
@@ -96,14 +98,14 @@ export const partnerCard = (p: Partner, full = false) => html`
 const capMini = () => {
   let d = '';
   let flows = '';
-  for (let x = 30, i = 0; x <= 290; x += 13, i++) {
-    d += `M${x} 40V200`;
-    flows += `<path class="capmini__flow" d="M${x} 40V200" style="animation-delay:-${((i * 7) % 26) / 10}s"/>`;
+  for (let x = 40, i = 0; x <= 280; x += 12, i++) {
+    d += `M${x} 52V188`;
+    flows += `<path class="capmini__flow" d="M${x} 52V188" style="animation-delay:-${((i * 7) % 26) / 10}s"/>`;
   }
   return `<svg class="capmini" viewBox="0 0 320 240" aria-hidden="true" focusable="false">
-    <rect class="capmini__panel" x="14" y="22" width="292" height="196" rx="8"/>
+    <rect class="capmini__panel" x="10" y="16" width="300" height="208" rx="10"/>
     <path class="capmini__tube" d="${d}"/>${flows}
-    <path class="capmini__hdr capmini__hdr--sup" d="M4 36H296"/><path class="capmini__hdr capmini__hdr--ret" d="M4 204H296"/>
+    <path class="capmini__hdr capmini__hdr--sup" d="M30 46H290"/><path class="capmini__hdr capmini__hdr--ret" d="M30 194H290"/>
   </svg>`;
 };
 

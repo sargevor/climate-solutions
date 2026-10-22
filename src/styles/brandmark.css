@@ -17,9 +17,10 @@
   }
 }
 
-.bm__gear, .bm__grow { transform-box: view-box; }
-.bm__gear { transform-origin: 560px 560px; }
-.bm__grow { transform-origin: 614px 1081px; }   /* bottom of the stem */
+/* fill-box: pivots are relative to each layer's own image box (see LAYERS in brandMark.ts). */
+.bm__gear, .bm__grow { transform-box: fill-box; }
+.bm__gear { transform-origin: 50% 50%; }               /* the gear image is centred on its axis */
+.bm__grow { transform-origin: 20.3% 99.13%; }          /* bottom of the stem */
 
 @media (prefers-reduced-motion: no-preference) {
   .bm.is-wait { opacity: 0; }
@@ -40,6 +41,9 @@
 
   /* The leaf grows from its stem: small and curled, then opening out with a slight sway. */
   .bm.is-play .bm__grow { animation: bm-grow 2.4s 2.1s cubic-bezier(0.3, 0.1, 0.25, 1) both; }
+  /* The logo's wider white gaps next to the stem appear only once the leaf is in place. */
+  .bm.is-wait .bm__fix { opacity: 0; }
+  .bm.is-play .bm__fix { animation: bm-fade 0.5s 4.3s ease both; }
 
   /* One tooth further on hover. */
   .bm__gear { transition: rotate 0.9s cubic-bezier(0.34, 1.4, 0.64, 1); }
@@ -50,6 +54,7 @@
   from { opacity: 0; transform: scale(0.55); }
   to { opacity: 1; transform: none; }
 }
+@keyframes bm-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes bm-spin {
   from { transform: rotate(-720deg); }
   to { transform: rotate(0deg); }

@@ -7,8 +7,10 @@ import { tx } from '../i18n';
  */
 export interface Partner {
   id: 'clina' | 'shenling';
-  /** Wordmark shown on the card. */
+  /** Company name; shown as lettering on the card when no logo file is set. */
   name: string;
+  /** Logo file in public/partners/ (e.g. '/partners/clina.png'), shown on a white plate. */
+  logo?: string;
   legalName: string;
   country: string;
   /** Short line under the name. */
