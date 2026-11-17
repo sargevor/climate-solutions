@@ -1,8 +1,5 @@
 import { tx } from '../i18n';
 import { CLINA_LOGO, SHENLING_LOGO } from '../assets/partners/logos';
-import { CLINA_DOCS } from './clinaDocs';
-
-const CLINA_DOC_COUNT = CLINA_DOCS.reduce((n, g) => n + g.docs.length, 0);
 
 /**
  * Manufacturers we work with. Shown on the home page and on /partners.
@@ -36,7 +33,7 @@ export const PARTNERS: Partner[] = tx<Partner[]>([
     field: 'Կապիլյար խողովակային համակարգեր',
     text: 'Գերմանական ընկերություն, որը մշակում և արտադրում է կապիլյար խողովակային մատեր՝ առաստաղի, պատերի և հատակի միջոցով ջեռուցման և հովացման համար։ CLINA-ի թիմը այս տեխնոլոգիայով զբաղվում է 1990-ականներից, իսկ արտադրությունը գտնվում է Գերմանիայում։',
     focus: ['Կապիլյար խողովակային մատեր', 'Մակերևութային ջեռուցում և հովացում', 'GRAVIMAT կոնվեկտորներ'],
-    docs: { href: '/clina-documents', label: `Տեխնիկական փաստաթղթեր (${CLINA_DOC_COUNT})` },
+    docs: { href: '/clina-documents', label: 'Կատալոգներ և տեխնիկական փաստաթղթեր' },
     tone: 'leaf',
   },
   {
@@ -60,7 +57,7 @@ export const PARTNERS: Partner[] = tx<Partner[]>([
     field: 'Capillary tube systems',
     text: 'A German company that develops and manufactures capillary tube mats for heating and cooling through ceilings, walls and floors. The CLINA team has worked on this technology since the 1990s, and production is in Germany.',
     focus: ['Capillary tube mats', 'Surface heating and cooling', 'GRAVIMAT convectors'],
-    docs: { href: '/clina-documents', label: `Technical documents (${CLINA_DOC_COUNT})` },
+    docs: { href: '/clina-documents', label: 'Catalogues and technical documents' },
     tone: 'leaf',
   },
   {

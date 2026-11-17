@@ -12,6 +12,7 @@ import { capillaryTeaser, ctaBand, partnerCard, projectCard, serviceCard } from 
 import { PARTNERS } from '../content/partners';
 import { partnersMore } from './partners';
 import { brandMark, mountBrandMark } from '../components/brandMark';
+import { catalogueShowcase } from '../components/catalogues';
 
 /** Facts shown under the hero buttons when no verified statistics are configured. */
 const HERO_FACTS = [
@@ -116,6 +117,8 @@ export const homePage = (): Page => ({
       ${partnersMore()}
     </div>
   </section>
+
+  ${catalogueShowcase()}
 
   <section class="sec sec--tint" aria-labelledby="capt-h">
     <div class="wrap">${capillaryTeaser('capt-h')}</div>

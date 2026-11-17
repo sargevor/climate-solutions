@@ -270,6 +270,7 @@ select.input {
 }
 .doc + .doc { border-top: 1px solid var(--line); }
 .doc:hover { background: color-mix(in srgb, var(--surface) 70%, transparent); }
+.doc__cover { width: 40px; height: 56px; object-fit: cover; border: 1px solid var(--line); border-radius: 3px; background: #fff; box-shadow: 0 2px 6px rgb(0 0 0 / 0.08); }
 .doc__ico { width: 34px; height: 34px; fill: none; stroke: var(--heat); stroke-width: 1.4; stroke-linejoin: round; }
 .doc__ico text { fill: var(--heat); stroke: none; font-size: 5.6px; font-weight: 800; letter-spacing: 0.02em; font-family: var(--font, sans-serif); }
 .doc__main { display: grid; gap: 4px; }
@@ -288,3 +289,43 @@ select.input {
 .partner__docs { margin-top: 4px; font-weight: 600; }
 .docs-cta { display: grid; gap: 24px; align-items: end; padding: clamp(24px, 4vw, 40px); border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
 @media (min-width: 900px) { .docs-cta { grid-template-columns: minmax(0, 1fr) auto; } }
+
+/* ---------- Home: catalogue showcase ---------- */
+.cats { background: var(--band); color: var(--band-fg); --focus: var(--band-accent); }
+.cats h2 { color: var(--band-fg); }
+.cats__head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 18px 40px; margin-bottom: clamp(28px, 4vw, 44px); }
+.cats__head .stack { max-width: 62ch; }
+.cats__all { color: var(--band-fg); font-weight: 650; }
+.cats__grid { display: grid; gap: clamp(20px, 3vw, 32px); }
+.cats__grid > * { min-width: 0; }
+@media (min-width: 1000px) { .cats__grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: start; } }
+.catf {
+  display: grid; grid-template-columns: minmax(0, 46%) minmax(0, 1fr); gap: clamp(18px, 2.5vw, 28px); align-items: center;
+  padding: clamp(18px, 2.5vw, 28px); border: 1px solid var(--band-line); border-radius: 12px; color: inherit; text-decoration: none;
+  background: color-mix(in srgb, var(--band-fg) 5%, transparent); transition: border-color 0.25s, background-color 0.25s;
+}
+.catf:hover { border-color: var(--band-accent); background: color-mix(in srgb, var(--band-fg) 9%, transparent); }
+.catf__cover, .catp__cover { display: block; overflow: hidden; border-radius: 4px; background: #fff; box-shadow: 0 18px 34px -16px rgb(0 0 0 / 0.6); }
+.catf__cover img, .catp__cover img { display: block; width: 100%; height: auto; aspect-ratio: 520 / 729; object-fit: cover; transition: transform 0.5s var(--ease); }
+.catf:hover img, .catp:hover img { transform: scale(1.04); }
+.catf__body { display: grid; gap: 10px; align-content: center; justify-items: start; }
+.catf__tag { font-size: var(--t-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: color-mix(in srgb, var(--band-accent) 55%, #fff); }
+.catf__title { font-size: clamp(1.35rem, 2.4vw, 1.75rem); font-weight: 750; line-height: 1.2; }
+.catf__meta { font-size: var(--t-sm); color: var(--band-muted); }
+.catf__btn { margin-top: 8px; pointer-events: none; }
+.cats__parts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 14px; }
+@media (min-width: 560px) { .cats__parts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 760px) { .cats__parts { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.catp { position: relative; display: grid; gap: 10px; color: inherit; text-decoration: none; border-radius: 6px; }
+.catp__title { font-size: var(--t-xs); font-weight: 600; line-height: 1.35; color: var(--band-muted); transition: color 0.2s; }
+.catp:hover .catp__title { color: var(--band-fg); }
+.catf:focus-visible, .catp:focus-visible { outline: 3px solid var(--band-accent); outline-offset: 4px; }
+@media (max-width: 480px) { .catf { grid-template-columns: minmax(0, 40%) minmax(0, 1fr); } }
+/* Phones: the chapter catalogues become a sideways-swipe row instead of a long grid. */
+@media (max-width: 759px) {
+  .cats__parts {
+    display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+    margin-left: calc(-1 * var(--gut)); margin-right: calc(-1 * var(--gut-r)); padding: 4px var(--gut-r) 14px var(--gut); scroll-padding-left: var(--gut); scrollbar-width: thin;
+  }
+  .cats__parts li { flex: 0 0 40%; scroll-snap-align: start; }
+}

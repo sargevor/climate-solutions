@@ -3,10 +3,116 @@
  * Generated: files live in public/docs/clina/<group>/. Titles follow CLINA's own; German-only
  * guides keep their German title with the English meaning in `meaning`.
  */
-export interface ClinaDoc { title: string; url: string; lang: 'en' | 'de'; pages: number; kb: number; meaning?: string }
+export interface ClinaDoc { title: string; url: string; lang: 'en' | 'de'; pages: number; kb: number; meaning?: string; hy?: string; cover?: string }
 export interface ClinaDocGroup { id: string; hy: string; en: string; docs: ClinaDoc[] }
 
 export const CLINA_DOCS: ClinaDocGroup[] = [
+  {
+    "id": "catalogue",
+    "hy": "Արտադրանքի կատալոգ",
+    "en": "Product catalogue",
+    "docs": [
+      {
+        "title": "Product Catalogue 2025 – complete edition (without prices)",
+        "url": "/docs/clina/catalogue/2025-clina-product-catalogue-no-prices.pdf",
+        "lang": "en",
+        "pages": 110,
+        "kb": 8081,
+        "hy": "Արտադրանքի կատալոգ 2025՝ ամբողջական (առանց գների)",
+        "cover": "/docs/clina/covers/2025-clina-product-catalogue-no-prices.webp"
+      },
+      {
+        "title": "Heating and Cooling Mats",
+        "url": "/docs/clina/catalogue/2025-heating-and-cooling-mats.pdf",
+        "lang": "en",
+        "pages": 30,
+        "kb": 1792,
+        "hy": "Ջեռուցման և հովացման մատեր",
+        "cover": "/docs/clina/covers/2025-heating-and-cooling-mats.webp"
+      },
+      {
+        "title": "Prefabricated Products",
+        "url": "/docs/clina/catalogue/2025-prefabricated-products.pdf",
+        "lang": "en",
+        "pages": 7,
+        "kb": 1660,
+        "hy": "Գործարանային պատրաստի արտադրանք",
+        "cover": "/docs/clina/covers/2025-prefabricated-products.webp"
+      },
+      {
+        "title": "Assembly",
+        "url": "/docs/clina/catalogue/2025-assembly.pdf",
+        "lang": "en",
+        "pages": 1,
+        "kb": 152,
+        "hy": "Հավաքներ՝ կոլեկտորներ",
+        "cover": "/docs/clina/covers/2025-assembly.webp"
+      },
+      {
+        "title": "Tubes, Supply and Return Lines",
+        "url": "/docs/clina/catalogue/2025-tubes-supply-and-return-lines.pdf",
+        "lang": "en",
+        "pages": 6,
+        "kb": 514,
+        "hy": "Խողովակներ, մատակարարման և վերադարձի գծեր",
+        "cover": "/docs/clina/covers/2025-tubes-supply-and-return-lines.webp"
+      },
+      {
+        "title": "Connection Components",
+        "url": "/docs/clina/catalogue/2025-connection-components.pdf",
+        "lang": "en",
+        "pages": 8,
+        "kb": 748,
+        "hy": "Միացման տարրեր",
+        "cover": "/docs/clina/covers/2025-connection-components.webp"
+      },
+      {
+        "title": "Fittings",
+        "url": "/docs/clina/catalogue/2025-fittings.pdf",
+        "lang": "en",
+        "pages": 10,
+        "kb": 753,
+        "hy": "Ֆիթինգներ",
+        "cover": "/docs/clina/covers/2025-fittings.webp"
+      },
+      {
+        "title": "Measurement and Control Technology",
+        "url": "/docs/clina/catalogue/2025-measurement-and-control-technology.pdf",
+        "lang": "en",
+        "pages": 8,
+        "kb": 777,
+        "hy": "Չափման և կառավարման տեխնիկա",
+        "cover": "/docs/clina/covers/2025-measurement-and-control-technology.webp"
+      },
+      {
+        "title": "System separation and plastic manifold",
+        "url": "/docs/clina/catalogue/2025-system-seperation-and-plastic-manifold.pdf",
+        "lang": "en",
+        "pages": 6,
+        "kb": 672,
+        "hy": "Համակարգի բաժանում և պլաստիկ կոլեկտոր",
+        "cover": "/docs/clina/covers/2025-system-seperation-and-plastic-manifold.webp"
+      },
+      {
+        "title": "Fixing Material",
+        "url": "/docs/clina/catalogue/2025-fixing-material.pdf",
+        "lang": "en",
+        "pages": 6,
+        "kb": 563,
+        "hy": "Ամրացման նյութեր",
+        "cover": "/docs/clina/covers/2025-fixing-material.webp"
+      },
+      {
+        "title": "Tools and Assembly Kit",
+        "url": "/docs/clina/catalogue/2025-tools-and-assembly-kit.pdf",
+        "lang": "en",
+        "pages": 3,
+        "kb": 767,
+        "hy": "Գործիքներ և մոնտաժային հավաքածու",
+        "cover": "/docs/clina/covers/2025-tools-and-assembly-kit.webp"
+      }
+    ]
+  },
   {
     "id": "installation",
     "hy": "Մոնտաժի ուղեցույցներ",
@@ -27,6 +133,14 @@ export const CLINA_DOCS: ClinaDocGroup[] = [
         "kb": 552
       },
       {
+        "title": "Fußbodenheizung im Estrich mit OPTIMAT",
+        "url": "/docs/clina/installation/fussbodenheizung-optimat-im-estrich.pdf",
+        "lang": "de",
+        "pages": 4,
+        "kb": 501,
+        "meaning": "Floor heating in screed with OPTIMAT"
+      },
+      {
         "title": "Fußbodenheizung auf Holz und Trockenbau mit FOLIMAT",
         "url": "/docs/clina/installation/fussbodenheizung-auf-holz-und-trockenbau.pdf",
         "lang": "de",
@@ -41,14 +155,6 @@ export const CLINA_DOCS: ClinaDocGroup[] = [
         "pages": 5,
         "kb": 940,
         "meaning": "Floor heating on cement or flowing screed with FOLIMAT"
-      },
-      {
-        "title": "Fußbodenheizung im Estrich mit OPTIMAT",
-        "url": "/docs/clina/installation/fussbodenheizung-optimat-im-estrich.pdf",
-        "lang": "de",
-        "pages": 4,
-        "kb": 501,
-        "meaning": "Floor heating in screed with OPTIMAT"
       },
       {
         "title": "Gypsum board ceiling tile",
@@ -77,13 +183,6 @@ export const CLINA_DOCS: ClinaDocGroup[] = [
         "lang": "en",
         "pages": 1,
         "kb": 138
-      },
-      {
-        "title": "Jointless drywall ceiling with capillary tube mat applied on site",
-        "url": "/docs/clina/installation/jointless-drywall-ceiling-with-capillary-tube-mat-applied-on-site.pdf",
-        "lang": "en",
-        "pages": 3,
-        "kb": 362
       },
       {
         "title": "Metal panel",
@@ -173,6 +272,13 @@ export const CLINA_DOCS: ClinaDocGroup[] = [
         "lang": "en",
         "pages": 1,
         "kb": 293
+      },
+      {
+        "title": "Jointless drywall ceiling with capillary tube mat applied on site",
+        "url": "/docs/clina/installation/jointless-drywall-ceiling-with-capillary-tube-mat-applied-on-site.pdf",
+        "lang": "en",
+        "pages": 3,
+        "kb": 362
       }
     ]
   },
@@ -250,90 +356,6 @@ export const CLINA_DOCS: ClinaDocGroup[] = [
         "lang": "en",
         "pages": 1,
         "kb": 205
-      }
-    ]
-  },
-  {
-    "id": "catalogue",
-    "hy": "Արտադրանքի կատալոգ",
-    "en": "Product catalogue",
-    "docs": [
-      {
-        "title": "Product Catalogue 2025 – complete edition (without prices)",
-        "url": "/docs/clina/catalogue/2025-clina-product-catalogue-no-prices.pdf",
-        "lang": "en",
-        "pages": 110,
-        "kb": 8081
-      },
-      {
-        "title": "Assembly",
-        "url": "/docs/clina/catalogue/2025-assembly.pdf",
-        "lang": "en",
-        "pages": 1,
-        "kb": 152
-      },
-      {
-        "title": "Connection Components",
-        "url": "/docs/clina/catalogue/2025-connection-components.pdf",
-        "lang": "en",
-        "pages": 8,
-        "kb": 748
-      },
-      {
-        "title": "Fittings",
-        "url": "/docs/clina/catalogue/2025-fittings.pdf",
-        "lang": "en",
-        "pages": 10,
-        "kb": 753
-      },
-      {
-        "title": "Fixing Material",
-        "url": "/docs/clina/catalogue/2025-fixing-material.pdf",
-        "lang": "en",
-        "pages": 6,
-        "kb": 563
-      },
-      {
-        "title": "Heating and Cooling Mats",
-        "url": "/docs/clina/catalogue/2025-heating-and-cooling-mats.pdf",
-        "lang": "en",
-        "pages": 30,
-        "kb": 1792
-      },
-      {
-        "title": "Measurement and Control Technology",
-        "url": "/docs/clina/catalogue/2025-measurement-and-control-technology.pdf",
-        "lang": "en",
-        "pages": 8,
-        "kb": 777
-      },
-      {
-        "title": "Prefabricated Products",
-        "url": "/docs/clina/catalogue/2025-prefabricated-products.pdf",
-        "lang": "en",
-        "pages": 7,
-        "kb": 1660
-      },
-      {
-        "title": "System separation and plastic manifold",
-        "url": "/docs/clina/catalogue/2025-system-seperation-and-plastic-manifold.pdf",
-        "lang": "en",
-        "pages": 6,
-        "kb": 672
-      },
-      {
-        "title": "Tools and Assembly Kit",
-        "url": "/docs/clina/catalogue/2025-tools-and-assembly-kit.pdf",
-        "lang": "en",
-        "pages": 3,
-        "kb": 767
-      },
-      {
-        "title": "Tubes, Supply and Return Lines",
-        "url": "/docs/clina/catalogue/2025-tubes-supply-and-return-lines.pdf",
-        "lang": "en",
-        "pages": 6,
-        "kb": 514
       }
     ]
   },
@@ -420,13 +442,6 @@ export const CLINA_DOCS: ClinaDocGroup[] = [
         "kb": 292
       },
       {
-        "title": "OVAMAT (all variants)",
-        "url": "/docs/clina/product-sheets/ovamat.pdf",
-        "lang": "en",
-        "pages": 2,
-        "kb": 421
-      },
-      {
         "title": "OVAMAT G 10",
         "url": "/docs/clina/product-sheets/ovamat-g-10.pdf",
         "lang": "en",
@@ -439,6 +454,13 @@ export const CLINA_DOCS: ClinaDocGroup[] = [
         "lang": "en",
         "pages": 1,
         "kb": 306
+      },
+      {
+        "title": "OVAMAT (all variants)",
+        "url": "/docs/clina/product-sheets/ovamat.pdf",
+        "lang": "en",
+        "pages": 2,
+        "kb": 421
       }
     ]
   },
@@ -672,18 +694,18 @@ export const CLINA_DOCS: ClinaDocGroup[] = [
         "kb": 783
       },
       {
-        "title": "Plaster on concrete – ceiling",
-        "url": "/docs/clina/system-descriptions/plaster-on-concrete-ceiling.pdf",
-        "lang": "en",
-        "pages": 3,
-        "kb": 552
-      },
-      {
         "title": "Plaster on gypsum board | brickwork | concrete – wall",
         "url": "/docs/clina/system-descriptions/plaster-on-gb-brickwork-concrete-wall.pdf",
         "lang": "en",
         "pages": 3,
         "kb": 613
+      },
+      {
+        "title": "Plaster on concrete – ceiling",
+        "url": "/docs/clina/system-descriptions/plaster-on-concrete-ceiling.pdf",
+        "lang": "en",
+        "pages": 3,
+        "kb": 552
       },
       {
         "title": "Plaster on gypsum board – ceiling",

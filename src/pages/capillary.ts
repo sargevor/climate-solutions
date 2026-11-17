@@ -164,9 +164,9 @@ export const capillaryPage = (): Page => ({
   <section class="sec" aria-labelledby="cap-docs-h">
     <div class="wrap docs-cta rv">
       <div class="stack">
-        <p class="eyebrow">${tx('Փաստաթղթեր', 'Documents')}</p>
-        <h2 id="cap-docs-h">${tx('CLINA-ի տեխնիկական փաստաթղթեր', 'CLINA technical documents')}</h2>
-        <p class="lead">${tx('Մոնտաժի ուղեցույցներ, արտադրողականության ցուցանիշներ, կատալոգներ և համակարգերի տեխնիկական թերթեր՝ PDF ձևաչափով։', 'Installation guidelines, performance values, catalogues and system data sheets, as PDF files.')}</p>
+        <p class="eyebrow">${tx('Կատալոգներ և փաստաթղթեր', 'Catalogues and documents')}</p>
+        <h2 id="cap-docs-h">${tx('CLINA կատալոգներ և փաստաթղթեր', 'CLINA catalogues and documents')}</h2>
+        <p class="lead">${tx('Արտադրանքի կատալոգ, մոնտաժի ուղեցույցներ, արտադրողականության ցուցանիշներ և համակարգերի տեխնիկական թերթեր՝ PDF ձևաչափով։', 'Product catalogue, installation guidelines, performance values and system data sheets, as PDF files.')}</p>
       </div>
       <div>${clinaDocsLink('btn btn--primary')}</div>
     </div>

@@ -4,8 +4,6 @@ import { html, arrow } from '../lib/dom';
 import { CLINA_DOCS, type ClinaDoc } from '../content/clinaDocs';
 import { ctaBand, pageHead } from '../components/blocks';
 
-const TOTAL = CLINA_DOCS.reduce((n, g) => n + g.docs.length, 0);
-
 const fileIcon = `<svg class="doc__ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 2.5h8l4.5 4.5v14.5H6z"/><path d="M14 2.5V7h4.5"/><text x="12.2" y="17.6" text-anchor="middle">PDF</text></svg>`;
 
 const size = (kb: number) =>
@@ -14,11 +12,13 @@ const size = (kb: number) =>
 const pages = (n: number) => (lang === 'hy' ? `${n} էջ` : `${n} ${n === 1 ? 'page' : 'pages'}`);
 
 const docRow = (d: ClinaDoc) => html`
-  <li class="doc" data-q="${(d.title + ' ' + (d.meaning ?? '')).toLowerCase()}">
-    ${fileIcon}
+  <li class="doc" data-q="${(d.title + ' ' + (d.meaning ?? '') + ' ' + (d.hy ?? '')).toLowerCase()}">
+    ${d.cover ? html`<img class="doc__cover" src="${d.cover}" alt="" width="40" height="56" loading="lazy" decoding="async">` : fileIcon}
     <div class="doc__main">
-      <p class="doc__title" ${d.lang === 'de' ? 'lang="de"' : 'lang="en"'}>${d.title}</p>
-      ${d.meaning && html`<p class="doc__meaning" lang="en">${d.meaning}</p>`}
+      ${d.hy && lang === 'hy'
+        ? html`<p class="doc__title">${d.hy}</p><p class="doc__meaning" lang="en">${d.title}</p>`
+        : html`<p class="doc__title" ${d.lang === 'de' ? 'lang="de"' : 'lang="en"'}>${d.title}</p>
+      ${d.meaning && html`<p class="doc__meaning" lang="en">${d.meaning}</p>`}`}
       <p class="doc__meta">
         <span class="doc__lang doc__lang--${d.lang}" title="${d.lang === 'de' ? tx('Գերմաներեն', 'German') : tx('Անգլերեն', 'English')}">${d.lang.toUpperCase()}</span>
         <span>${pages(d.pages)}</span><span>${size(d.kb)}</span>
@@ -37,19 +37,14 @@ export const clinaDocsPage = (): Page => ({
     crumbs: [
       { href: '/', label: tx('Գլխավոր', 'Home') },
       { href: '/partners', label: tx('Գործընկերներ', 'Partners') },
-      { label: tx('CLINA փաստաթղթեր', 'CLINA documents') },
+      { label: tx('CLINA կատալոգներ և փաստաթղթեր', 'CLINA catalogues and documents') },
     ],
-    title: tx('CLINA տեխնիկական փաստաթղթեր', 'CLINA technical documents'),
+    title: tx('CLINA կատալոգներ և փաստաթղթեր', 'CLINA catalogues and documents'),
     fx: 'blueprint',
     lead: tx(
-      'Մեր գործընկեր CLINA-ի մոնտաժի ուղեցույցները, կատալոգները, տեխնիկական թերթերը և համակարգերի նկարագրությունները՝ մեկ տեղում։ Փաստաթղթերն անգլերեն են, իսկ մի քանի մոնտաժի ուղեցույց՝ միայն գերմաներեն։',
-      'Installation guidelines, catalogues, data sheets and system descriptions from our partner CLINA, all in one place. The documents are in English; a few installation guidelines are available in German only.',
+      'Մեր գործընկեր CLINA-ի արտադրանքի կատալոգը, ինչպես նաև մոնտաժի ուղեցույցները, տեխնիկական թերթերը և համակարգերի նկարագրությունները՝ մեկ տեղում։ Փաստաթղթերն անգլերեն են, իսկ մի քանի մոնտաժի ուղեցույց՝ միայն գերմաներեն։',
+      'The product catalogue of our partner CLINA, together with installation guidelines, data sheets and system descriptions, all in one place. The documents are in English; a few installation guidelines are available in German only.',
     ),
-    extra: html`<ul class="docstats">
-      <li><strong>${TOTAL}</strong> ${tx('փաստաթուղթ', 'documents')}</li>
-      <li><strong>${CLINA_DOCS.length}</strong> ${tx('բաժին', 'sections')}</li>
-      <li><strong>PDF</strong> ${tx('ձևաչափ', 'format')}</li>
-    </ul>`,
   })}
 
   <section class="sec" aria-labelledby="docs-h">
@@ -69,7 +64,6 @@ export const clinaDocsPage = (): Page => ({
           <summary class="docg__head">
             <span class="docg__n" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
             <h3 class="docg__title">${tx(g.hy, g.en)}</h3>
-            <span class="docg__count">${g.docs.length}</span>
             <span class="docg__chev" aria-hidden="true"></span>
           </summary>
           <ul class="docg__list">${g.docs.map(docRow)}</ul>
@@ -92,9 +86,7 @@ export const clinaDocsPage = (): Page => ({
     if (!input || !count || !empty) return;
     const initialOpen = groups.map((g) => g.open);
     const say = (n: number, q: string) => {
-      count.textContent = q
-        ? tx(`Գտնվեց՝ ${n}`, `${n} found`)
-        : tx(`Ընդամենը՝ ${TOTAL} փաստաթուղթ`, `${TOTAL} documents in total`);
+      count.textContent = q ? tx(`Գտնվեց՝ ${n}`, `${n} found`) : '';
     };
     const filter = () => {
       const q = input.value.trim().toLowerCase();
@@ -108,15 +100,12 @@ export const clinaDocsPage = (): Page => ({
         });
         g.hidden = n === 0;
         g.open = q ? n > 0 : initialOpen[i];
-        const badge = g.querySelector<HTMLElement>('.docg__count');
-        if (badge) badge.textContent = String(n);
         total += n;
       });
       empty.hidden = total > 0;
       say(total, q);
     };
     input.addEventListener('input', filter);
-    say(TOTAL, '');
     // Opening a section from a link such as /clina-documents#catalogue
     const target = location.hash && groups.find((g) => '#' + g.id === location.hash);
     if (target) { target.open = true; initialOpen[groups.indexOf(target)] = true; }
@@ -125,4 +114,4 @@ export const clinaDocsPage = (): Page => ({
 
 /** Link to the documents page, used on the Partners and capillary pages. */
 export const clinaDocsLink = (cls = 'btn btn--ghost') =>
-  html`<a class="${cls}" href="/clina-documents">${tx('CLINA տեխնիկական փաստաթղթեր', 'CLINA technical documents')} (${TOTAL}) ${arrow}</a>`;
+  html`<a class="${cls}" href="/clina-documents">${tx('CLINA կատալոգներ և փաստաթղթեր', 'CLINA catalogues and documents')} ${arrow}</a>`;
