@@ -3,6 +3,7 @@ import type { Page } from '../lib/router';
 import { html, arrow } from '../lib/dom';
 import { capillaryDrawing, CAPILLARY_CALLOUTS } from '../lib/drawings';
 import { ctaBand, pageHead } from '../components/blocks';
+import { clinaDocsLink } from './clinaDocs';
 
 /*
  * Capillary tube mats (CLINA). Product facts come from clina.de; general notes on design
@@ -157,6 +158,17 @@ export const capillaryPage = (): Page => ({
         <p class="lead">${tx('Կապիլյար համակարգը լավ է աշխատում, երբ այն ճիշտ է նախագծված և համաձայնեցված շենքի մյուս համակարգերի հետ։', 'A capillary system works well when it is designed correctly and coordinated with the building\'s other systems.')}</p>
       </div>
       <ul class="tiles rv">${DESIGN.map((d) => html`<li><h3>${d.title}</h3><p>${d.text}</p></li>`)}</ul>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="cap-docs-h">
+    <div class="wrap docs-cta rv">
+      <div class="stack">
+        <p class="eyebrow">${tx('Փաստաթղթեր', 'Documents')}</p>
+        <h2 id="cap-docs-h">${tx('CLINA-ի տեխնիկական փաստաթղթեր', 'CLINA technical documents')}</h2>
+        <p class="lead">${tx('Մոնտաժի ուղեցույցներ, արտադրողականության ցուցանիշներ, կատալոգներ և համակարգերի տեխնիկական թերթեր՝ PDF ձևաչափով։', 'Installation guidelines, performance values, catalogues and system data sheets, as PDF files.')}</p>
+      </div>
+      <div>${clinaDocsLink('btn btn--primary')}</div>
     </div>
   </section>
 

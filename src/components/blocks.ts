@@ -91,6 +91,7 @@ export const partnerCard = (p: Partner, full = false) => html`
       <h3 id="partner-${p.id}"><span class="vh">${p.name}: </span>${p.legalName}</h3>
       <p class="partner__text">${p.text}</p>
       ${full && html`<ul class="partner__focus">${p.focus.map((f) => html`<li>${f}</li>`)}</ul>`}
+      ${p.docs && html`<p class="partner__docs"><a class="link" href="${p.docs.href}">${p.docs.label} ${arrow}</a></p>`}
     </div>
   </article>`;
 

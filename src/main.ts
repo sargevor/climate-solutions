@@ -22,6 +22,7 @@ import { contactPage } from './pages/contact';
 import { privacyPage } from './pages/privacy';
 import { partnersPage } from './pages/partners';
 import { capillaryPage } from './pages/capillary';
+import { clinaDocsPage } from './pages/clinaDocs';
 import { notFoundPage } from './pages/notFound';
 import { mountGlobalEffects, mountPageEffects } from './features/effects';
 
@@ -47,6 +48,7 @@ router
   .add('/services/:slug', ({ slug }) => serviceDetailPage(slug))
   .add('/partners', partnersPage)
   .add('/capillary-tube-mats', capillaryPage)
+  .add('/clina-documents', clinaDocsPage)
   .add('/contact', contactPage)
   .add('/privacy', privacyPage);
 // The portfolio page exists only once real projects are added.

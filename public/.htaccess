@@ -8,6 +8,7 @@ AddDefaultCharset UTF-8
 AddType image/svg+xml .svg
 AddType image/webp .webp
 AddType font/woff2 .woff2
+AddType application/pdf .pdf
 
 ErrorDocument 404 /404.html
 
@@ -35,7 +36,7 @@ ErrorDocument 404 /404.html
   <FilesMatch "\.(js|css|woff2?)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
-  <FilesMatch "\.(png|jpe?g|webp|ico|svg)$">
+  <FilesMatch "\.(png|jpe?g|webp|ico|svg|pdf)$">
     Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
   <FilesMatch "\.html$">
